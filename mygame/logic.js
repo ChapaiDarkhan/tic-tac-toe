@@ -8,16 +8,21 @@ window.onload = function () {
     document.getElementById('game').onclick = function(event) {
         console.log(event);
         if (event.target.className == 'block') {
-            if (hod%2==0) {
-                event.target.innerHTML = 'x';
-            }
-            else {
-                event.target.innerHTML = '0';
-            }
+            if (event.target.innerHTML !== '0' && event.target.innerHTML !== 'x') {
+                console.log(event.target.innerHTML)
+                event.target.innerHTML = 'x'
+                    if (hod%2==0) {
+                        event.target.innerHTML = 'x'
+                    }
+                    else {
+                        event.target.innerHTML = '0';
+                    }
             hod++;
             checkWinner ();
+            }
         }
     }
+
     function checkWinner() {
         var allblock = document.getElementsByClassName('block');
         //console.log(allblock);
